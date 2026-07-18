@@ -1,15 +1,25 @@
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        // Criação do primeiro personagem
-        Personagem heroi1 = new Personagem("Arthus", "Guerreiro", 1, 100, 10.5);
+        // Lista de personagens (polimorfismo)
+        ArrayList<Personagem> personagens = new ArrayList<>();
 
-        // Criação do segundo personagem
-        Personagem heroi2 = new Personagem("Lyra", "Arqueira", 3, 85, 14.2);
+        // Instanciando objetos das subclasses
+        personagens.add(new Guerreiro("Arthus", 5, 150, 22.5, "Espada"));
+        personagens.add(new Mago("Elenara", 7, 90, 35.8, "Bola de Fogo"));
 
-        // Exibe as informações dos personagens
-        heroi1.exibirStatus();
-        heroi2.exibirStatus();
+        // Percorrendo a lista
+        for (Personagem personagem : personagens) {
+
+            personagem.exibirStatus();
+
+            // Chamada polimórfica
+            personagem.usarHabilidadeEspecial();
+
+            System.out.println();
+        }
     }
 }

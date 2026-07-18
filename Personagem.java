@@ -1,13 +1,14 @@
-public class Personagem {
+// Classe abstrata que servirá como base para todos os personagens
+public abstract class Personagem {
 
-    // Atributos do personagem
-    String nome;
-    String classe;
-    int nivel;
-    int pontosDeVida;
-    double poderBase;
+    // Atributos comuns
+    protected String nome;
+    protected String classe;
+    protected int nivel;
+    protected int pontosDeVida;
+    protected double poderBase;
 
-    // Construtor da classe
+    // Construtor da superclasse
     public Personagem(String nome, String classe, int nivel, int pontosDeVida, double poderBase) {
         this.nome = nome;
         this.classe = classe;
@@ -16,14 +17,16 @@ public class Personagem {
         this.poderBase = poderBase;
     }
 
-    // Método para exibir as informações do personagem
+    // Método comum para todas as subclasses
     public void exibirStatus() {
-        System.out.println("--- Status do Personagem ---");
+        System.out.println("================================");
         System.out.println("Nome: " + nome);
         System.out.println("Classe: " + classe);
         System.out.println("Nível: " + nivel);
         System.out.println("Pontos de Vida: " + pontosDeVida);
         System.out.println("Poder Base: " + poderBase);
-        System.out.println();
     }
+
+    // Método abstrato que será implementado pelas subclasses
+    public abstract void usarHabilidadeEspecial();
 }
