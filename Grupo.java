@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-// Representa um grupo de personagens
 public class Grupo {
 
     private ArrayList<Personagem> membros;
@@ -10,12 +9,12 @@ public class Grupo {
         membros = new ArrayList<>();
     }
 
-    // Adiciona personagem
+    // Adiciona personagem ao grupo
     public void adicionarPersonagem(Personagem p) {
         membros.add(p);
     }
 
-    // Lista os personagens
+    // Lista todos os personagens
     public void listarPersonagens() {
         for (Personagem p : membros) {
             p.exibirStatus();
@@ -24,29 +23,29 @@ public class Grupo {
         }
     }
 
-    // Realiza uma batalha
+    // Realiza uma batalha entre dois personagens
     public void batalhar(Personagem a, Personagem b) {
 
         double poderA = a.getNivel() * a.getPoderBase();
         double poderB = b.getNivel() * b.getPoderBase();
 
         if (poderA > poderB) {
-            System.out.println(a.getClasse().replace("", "") + " " + a.getNome()
+            System.out.println(a.getClasse() + " " + a.getNome()
                     + " venceu! Poder total: " + poderA);
         } else if (poderB > poderA) {
-            System.out.println(b.getClasse().replace("", "") + " " + b.getNome()
+            System.out.println(b.getClasse() + " " + b.getNome()
                     + " venceu! Poder total: " + poderB);
         } else {
             System.out.println("Empate! Poder total: " + poderA);
         }
     }
 
-    // Retorna os membros
+    // Retorna a lista de membros
     public ArrayList<Personagem> getMembros() {
         return membros;
     }
 
-    // Ordena por nível
+    // Ordena os personagens por nível
     public void ordenarPorNivel() {
         Collections.sort(membros);
     }

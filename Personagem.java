@@ -8,7 +8,7 @@ public abstract class Personagem implements Comparable<Personagem> {
     protected int pontosDeVida;
     protected double poderBase;
 
-    // Construtor
+    // Construtor da superclasse
     public Personagem(String nome, String classe, int nivel, int pontosDeVida, double poderBase) {
         this.nome = nome;
         this.classe = classe;
@@ -17,7 +17,7 @@ public abstract class Personagem implements Comparable<Personagem> {
         this.poderBase = poderBase;
     }
 
-    // Exibe os dados do personagem
+    // Exibe as informações do personagem
     public void exibirStatus() {
         System.out.println("===============================");
         System.out.println("Nome: " + nome);
@@ -35,17 +35,25 @@ public abstract class Personagem implements Comparable<Personagem> {
         return nome;
     }
 
+    public String getClasse() {
+        return classe;
+    }
+
     public int getNivel() {
         return nivel;
+    }
+
+    public int getPontosDeVida() {
+        return pontosDeVida;
     }
 
     public double getPoderBase() {
         return poderBase;
     }
 
-    // Comparable (ordena por nível)
+    // Ordenação por nível
     @Override
     public int compareTo(Personagem outro) {
         return Integer.compare(this.nivel, outro.nivel);
     }
-}s
+}
