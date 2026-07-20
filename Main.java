@@ -1,25 +1,30 @@
-import java.util.ArrayList;
-
 public class Main {
 
     public static void main(String[] args) {
 
-        // Lista de personagens (polimorfismo)
-        ArrayList<Personagem> personagens = new ArrayList<>();
+        Grupo grupo1 = new Grupo();
+        Grupo grupo2 = new Grupo();
 
-        // Instanciando objetos das subclasses
-        personagens.add(new Guerreiro("Arthus", 5, 150, 22.5, "Espada"));
-        personagens.add(new Mago("Elenara", 7, 90, 35.8, "Bola de Fogo"));
+        grupo1.adicionarPersonagem(
+                new Guerreiro("Arthus", 5, 150, 22.5, "Espada"));
 
-        // Percorrendo a lista
-        for (Personagem personagem : personagens) {
+        grupo1.adicionarPersonagem(
+                new Guerreiro("Leon", 8, 180, 30.0, "Machado"));
 
-            personagem.exibirStatus();
+        grupo2.adicionarPersonagem(
+                new Mago("Elenara", 7, 90, 35.8, "Bola de Fogo"));
 
-            // Chamada polimórfica
-            personagem.usarHabilidadeEspecial();
+        grupo2.adicionarPersonagem(
+                new Mago("Merlin", 9, 100, 32.0, "Raio Arcano"));
 
-            System.out.println();
-        }
+        System.out.println("=== GRUPO 1 ===");
+        grupo1.listarPersonagens();
+
+        System.out.println("=== GRUPO 2 ===");
+        grupo2.listarPersonagens();
+
+        Arena arena = new Arena();
+
+        arena.batalharGrupos(grupo1, grupo2);
     }
 }

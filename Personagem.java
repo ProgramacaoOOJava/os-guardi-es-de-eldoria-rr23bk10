@@ -1,5 +1,5 @@
 // Classe abstrata que servirá como base para todos os personagens
-public abstract class Personagem {
+public abstract class Personagem implements Comparable<Personagem> {
 
     // Atributos comuns
     protected String nome;
@@ -8,7 +8,7 @@ public abstract class Personagem {
     protected int pontosDeVida;
     protected double poderBase;
 
-    // Construtor da superclasse
+    // Construtor
     public Personagem(String nome, String classe, int nivel, int pontosDeVida, double poderBase) {
         this.nome = nome;
         this.classe = classe;
@@ -17,9 +17,9 @@ public abstract class Personagem {
         this.poderBase = poderBase;
     }
 
-    // Método comum para todas as subclasses
+    // Exibe os dados do personagem
     public void exibirStatus() {
-        System.out.println("================================");
+        System.out.println("===============================");
         System.out.println("Nome: " + nome);
         System.out.println("Classe: " + classe);
         System.out.println("Nível: " + nivel);
@@ -27,6 +27,25 @@ public abstract class Personagem {
         System.out.println("Poder Base: " + poderBase);
     }
 
-    // Método abstrato que será implementado pelas subclasses
+    // Método abstrato
     public abstract void usarHabilidadeEspecial();
-}
+
+    // Getters
+    public String getNome() {
+        return nome;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public double getPoderBase() {
+        return poderBase;
+    }
+
+    // Comparable (ordena por nível)
+    @Override
+    public int compareTo(Personagem outro) {
+        return Integer.compare(this.nivel, outro.nivel);
+    }
+}s
